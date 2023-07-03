@@ -35,6 +35,8 @@ app.use(morgan(":method :url :status :total-time ms :data "));
 
 app.use(express.json());
 
+app.use(express.static("build"));
+
 app.use(cors());
 
 app.get("/api/persons", (request, response) => {
@@ -86,6 +88,6 @@ app.get("/info", (request, response) => {
   </div>`);
 });
 
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 3001;
 app.listen(PORT);
 console.log(`Server running on port ${PORT}`);
